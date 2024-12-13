@@ -1,0 +1,17 @@
+<launch>
+  
+ <node name="korban" pkg="semua" type="korban" output="screen">
+        <param name="network" value="/home/bf1/jetson-inference/python/training/detection/ssd/models/test/ssd-mobilenet.onnx" />
+        <param name="labels" value="/home/bf1/jetson-inference/python/training/detection/ssd/models/test/labels.txt" />
+        <param name="threshold" value="0.5" />
+        <remap from="detections" to="detections" />
+    </node>
+<node name="vision" pkg="semua" type="vision" output="screen">
+        <param name="network" value="/home/bf1/jetson-inference/python/training/detection/ssd/models/test/ssd-mobilenet.onnx" />
+        <param name="labels" value="/home/bf1/jetson-inference/python/training/detection/ssd/models/test/labels.txt" />
+        <param name="threshold" value="0.5" />
+        <remap from="detections" to="detections" />
+    </node>
+ <node name="stop" pkg="semua" type="stop" output="screen"> 
+  </node>
+</launch>
